@@ -151,5 +151,26 @@
                 </tbody>
             </table>
         </div>
+        <div class="card-body">
+            <table class="table table">
+                <thead>
+                <tr>
+                    <th>Время на поле</th>
+                    <th>Позиция</th>
+                </tr>
+                </thead>
+                {% for position, time in team.positions %}
+                    <tr>
+                        <td>
+                            {{ time }}
+                        </td>
+                        <td>
+                            {{ position }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endmacro %}

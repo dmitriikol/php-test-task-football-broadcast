@@ -13,6 +13,12 @@ class Team
     private array $players;
     private string $coach;
     private int $goals;
+    private array $positions = [
+        'Защитник' => 0,
+        'Вратарь' => 0,
+        'Нападающий' => 0,
+        'Полузащитник' => 0
+    ];
 
     public function __construct(string $name, string $country, string $logo, array $players, string $coach)
     {
@@ -24,6 +30,32 @@ class Team
         $this->players = $players;
         $this->coach = $coach;
         $this->goals = 0;
+    }
+
+    public function updatePosition(): void
+    {
+        foreach ($this->getPlayers() as $player) {
+            switch ($player->getPosition()) {
+                case 'В':
+                    $this->positions['Вратарь'] += $player->getPlayTime(); 
+                    break;
+                case 'З':
+                    $this->positions['Защитник'] += $player->getPlayTime(); 
+                    break;
+                case 'П':
+                    $this->positions['Полузащитник'] += $player->getPlayTime(); 
+                    break;
+                case 'Н':
+                    $this->positions['Нападающий'] += $player->getPlayTime(); 
+                    break;
+            }
+        }
+    }
+
+    public function getPositions(): array 
+    {
+        $this->updatePosition();
+        return $this->positions;
     }
 
     public function getName(): string

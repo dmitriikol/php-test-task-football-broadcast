@@ -14,8 +14,9 @@ class Player
     private bool $goal;
     private int $yellowCard;
     private int $redCard;
+    private string $position;
 
-    public function __construct(int $number, string $name)
+    public function __construct(int $number, string $name, string $position)
     {
         $this->number = $number;
         $this->name = $name;
@@ -25,6 +26,7 @@ class Player
         $this->goal = false;
         $this->yellowCard = 0;
         $this->redCard = 0;
+        $this->position = $position;
     }
 
     public function getNumber(): int
@@ -47,6 +49,11 @@ class Player
         return $this->outMinute;
     }
 
+    public function getPosition(): string
+    {
+        return $this->position;
+    }
+
     public function setGoal(): void
     {
         $this->goal = true;
@@ -57,21 +64,23 @@ class Player
         return $this->goal;
     }
 
-    public function addYellowCard()
+    public function addYellowCard(): void
     {
         $this->yellowCard += 1;
     }
 
-    public function getYellowCard() {
+    public function getYellowCard(): int
+     {
         return $this->yellowCard;
     }
 
-    public function addRedCard()
+    public function addRedCard(): void
     {
         $this->redCard += 1;
     }
 
-    public function getRedCard() {
+    public function getRedCard(): int
+     {
         return $this->redCard;
     }
 
