@@ -135,7 +135,7 @@ class MatchBuilder
     {
         $time = $event['time'];
         $periodEnd = $period == 1 ? 45 : 90;
-        $additionalTime = $time - $periodEnd;
+        $additionalTime = $time - $periodEnd - 1;
 
         return $additionalTime > 0 ? "$periodEnd + $additionalTime" : $time;
     }
