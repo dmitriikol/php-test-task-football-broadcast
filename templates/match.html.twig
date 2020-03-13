@@ -110,6 +110,7 @@
                 <tr>
                     <th>#</th>
                     <th>Гол</th>
+                    <th>Штраф</th>
                     <th>Имя</th>
                     <th></th>
                 </tr>
@@ -125,6 +126,18 @@
                                 <div>
                                     <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/goal.png">
                                 </div>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if player.yellowCard == 1 %}
+                                <div>
+                                    <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/card.png">
+                                </div>
+                            {% elseif player.yellowCard == 2 %}
+                                <div>
+                                    <img src="https://www.soccer.ru/sites/all/themes/newtheme/images/events-icons/yellow_red.png">
+                                </div>
+                            {% else %}
                             {% endif %}
                         </td>
                         <td>
